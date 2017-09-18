@@ -1,8 +1,5 @@
-# demo to show how to crack the captcha images -- rgb images
-* Programming environment
-    * Pillow==3.4.2
-    * tensorflow==1.0.1
-    * captcha==0.2.2
-
-* first please make sure you already install lib as the requirements list.
-* just run the `train.py` script ,i will train and save the model 
+# 这是验证码机器学习的例子,也是RNN卷积神经的入门级应用
+* 首先必须确定装了依赖包,没有安装的可以使用pip进行安装
+* 可以是用config.py对图片参数进行调整,如果学习时间太长,建议把图片字符数调小
+* 大概4000步左右可以达到预测值99%
+* 本例子抛砖引玉,可以做到破解任何网站的图片文本验证码
