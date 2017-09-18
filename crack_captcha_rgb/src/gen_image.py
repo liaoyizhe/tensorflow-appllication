@@ -14,25 +14,27 @@ number_dict = {}
 
 # 生成随机的指定的字符串
 def __gen_random_captcha_text(char_set=config.VALIDATE_STRING, size=None):
-    # char_set must be a str
+    # char_set必须为字符串
     if not char_set or not isinstance(char_set, str):
         raise ValueError('get the empty char_set')
-
-    # 随机
+    # 生成字符串数组
     result = list(char_set)
+    # 打散自字符串
     random.shuffle(result)
-
     # 返回字符串
     return ''.join(result[0:size])
 
-
+# 生成验证码图片
 def gen_random_captcha_image():
+    # 定义图片属性
     image = ImageCaptcha(width=config.IMAGE_WIDTH, height=config.IMAGE_HEIGHT, font_sizes=[config.FONT_SIZE])
-
     text = __gen_random_captcha_text(size=config.MAX_CAPTCHA)
+    # 生成验证码图片
     captcha = image.generate(text)
     captcha_image = Image.open(captcha)
+    # 将图片转换成三维数组 shape是(60,160,3)
     captcha_source = np.array(captcha_image)
+    # print captcha_source.shape
     return text, captcha_source
 
 
@@ -43,7 +45,7 @@ def gen_require_captcha_image():
         if image.shape == (config.IMAGE_HEIGHT, config.IMAGE_WIDTH, 3):
             return text, image
 
-
+# 返回key=>value数组,key=字符,value=所表示的数字
 # prepare the char to index
 def prepare_char_dict():
     if char_dict:
@@ -54,7 +56,6 @@ def prepare_char_dict():
 
     return char_dict
 
-
 def prepare_number_dict():
     if number_dict:
         return number_dict
@@ -64,7 +65,7 @@ def prepare_number_dict():
 
     return number_dict
 
-
+# 将字符串text转换成长度为config.MAX_CAPTCHA * config.CHAR_SET_LEN的整形数组,每一段以config.CHAR_SET_LEN为单位,代表一个字符
 def text_to_array(text):
     char_dict_tmp = prepare_char_dict()
 
@@ -76,7 +77,7 @@ def text_to_array(text):
 
     return arr
 
-
+# 同理,将字符数组转换为字符串
 def array_to_text(arr):
     num_dict_tmp = prepare_number_dict()
     text = []

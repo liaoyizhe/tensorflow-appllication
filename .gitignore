@@ -1,0 +1,6 @@
+*.pyc
+test
+.idea
+.gitignore
+.DS_Store
+tensorflow-application.iml
