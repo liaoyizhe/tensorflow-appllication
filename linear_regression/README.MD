@@ -3,6 +3,6 @@
     * 一种是已知预测值机器学习会无限向预测值靠近
     * 另外一种是用已知线性数据模型随机生成训练数据,让机器学习"尽量"与训练数据磨合
 
-![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
+![image](https://github.com/liaoyizhe/tensorflow-appllication/raw/master/image/image_liner_1.jpeg)
 
-![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
+![image](https://github.com/liaoyizhe/tensorflow-appllication/raw/master/image/image_liner_2.jpeg)
